@@ -2,7 +2,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import theme from "../theme";
 import { AppProps } from "next/app";
-import SidebarWithHeader from "../components/Sidebar";
+import SidebarWithHeader from "../components/SidebarWithHeader";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
