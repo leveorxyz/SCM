@@ -75,11 +75,11 @@ export default function Summary() {
               <Icon as={icon} w={8} h={8} color="blue.500" />
             </Flex>
 
-            <Text fontSize="sm">
+            <Text display="inline-flex" align="center" fontSize="sm">
               <Flex
-                as="span"
                 display="inline-flex"
                 align="center"
+                as="span"
                 color={direction ? "green.500" : "red.500"}
               >
                 <Icon as={direction ? FiArrowUp : FiArrowDown} />
