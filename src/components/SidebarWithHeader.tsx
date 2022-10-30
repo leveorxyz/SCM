@@ -9,7 +9,6 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
   Text,
@@ -137,29 +136,23 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   const color = useColorModeValue("gray.200", "gray.900");
 
   return (
-    <Link
-      href="#"
-      style={{ textDecoration: "none" }}
-      _focus={{ boxShadow: "none" }}
+    <Flex
+      align="center"
+      p="4"
+      mx="4"
+      borderRadius="lg"
+      role="group"
+      cursor="pointer"
+      _hover={{
+        bgColor,
+        color,
+        fontWeight: "bold",
+      }}
+      {...rest}
     >
-      <Flex
-        align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
-        cursor="pointer"
-        _hover={{
-          bgColor,
-          color,
-          fontWeight: "bold",
-        }}
-        {...rest}
-      >
-        {icon && <Icon mr="4" fontSize="16" as={icon} />}
-        {children}
-      </Flex>
-    </Link>
+      {icon && <Icon mr="4" fontSize="16" as={icon} />}
+      {children}
+    </Flex>
   );
 };
 
