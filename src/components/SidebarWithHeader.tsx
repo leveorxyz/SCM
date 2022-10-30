@@ -24,10 +24,8 @@ import {
 } from "@chakra-ui/react";
 import {
   FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
+  FiFolderPlus,
+  FiPackage,
   FiMenu,
   FiBell,
   FiChevronDown,
@@ -40,15 +38,15 @@ import { DarkModeSwitch } from "./DarkModeSwitch";
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  url: string;
 }
+
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
+  { name: "Dashboard", icon: FiHome, url: "/dashboard" },
+  { name: "Create Project", icon: FiFolderPlus, url: "/create" },
+  { name: "Add Project", icon: FiPackage, url: "/add" },
 ];
-const MenuItems = ["Profile", "Settings", "Billing"];
+const MenuItems = ["Profile", "Settings"];
 
 export default function SidebarWithHeader({
   children,
@@ -96,6 +94,7 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const router = useRouter();
   const bgColor = useColorModeValue("white", "gray.900");
   const color = useColorModeValue("gray.900", "white");
   const borderColor = useColorModeValue("gray.200", "gray.700");
@@ -117,7 +116,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem
+          key={link.name}
+          icon={link.icon}
+          onClick={() => router.push(link.url)}
+        >
           {link.name}
         </NavItem>
       ))}
@@ -164,6 +167,7 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const router = useRouter();
   const bgColor = useColorModeValue("white", "gray.900");
   const color = useColorModeValue("gray.900", "white");
   const borderColor = useColorModeValue("gray.200", "gray.700");
@@ -240,7 +244,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 <MenuItem key={item}>{item}</MenuItem>
               ))}
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={() => router.push("/")}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
