@@ -97,10 +97,12 @@ interface SidebarProps extends BoxProps {
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   const bgColor = useColorModeValue("white", "gray.900");
+  const color = useColorModeValue("gray.900", "white");
   const borderColor = useColorModeValue("gray.200", "gray.700");
   return (
     <Box
       bgColor={bgColor}
+      color={color}
       borderRight="1px"
       borderRightColor={borderColor}
       w={{ base: "full", md: 60 }}
@@ -163,6 +165,7 @@ interface MobileProps extends FlexProps {
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const bgColor = useColorModeValue("white", "gray.900");
+  const color = useColorModeValue("gray.900", "white");
   const borderColor = useColorModeValue("gray.200", "gray.700");
   return (
     <Flex
@@ -171,6 +174,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       height="20"
       alignItems="center"
       bgColor={bgColor}
+      color={color}
       borderBottomWidth="1px"
       borderBottomColor={borderColor}
       justifyContent={{ base: "space-between", md: "flex-end" }}
