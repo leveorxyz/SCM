@@ -33,6 +33,7 @@ import {
   FiChevronDown,
 } from "react-icons/fi";
 import { IconType } from "react-icons";
+import { useRouter } from "next/router";
 
 import { DarkModeSwitch } from "./DarkModeSwitch";
 
@@ -55,8 +56,15 @@ export default function SidebarWithHeader({
   children: ReactNode;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+  const bgColor = useColorModeValue("gray.100", "gray.900");
+
+  if (router.pathname === "/") {
+    return <>{children}</>;
+  }
+
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box minH="100vh" bg={bgColor}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
