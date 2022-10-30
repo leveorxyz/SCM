@@ -77,6 +77,7 @@ export default function Summary() {
 
             <Text fontSize="sm">
               <Flex
+                as="span"
                 display="inline-flex"
                 align="center"
                 color={direction ? "green.500" : "red.500"}
