@@ -64,7 +64,7 @@ export default function SidebarWithHeader({
   }
 
   return (
-    <Box minH="100vh" bg={bgColor}>
+    <Box minH="100vh" bgColor={bgColor}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -96,12 +96,13 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const bgColor = useColorModeValue("white", "gray.900");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
   return (
     <Box
-      transition="3s ease"
-      bg={useColorModeValue("white", "gray.900")}
+      bgColor={bgColor}
       borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderRightColor={borderColor}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
@@ -127,6 +128,9 @@ interface NavItemProps extends FlexProps {
   children: string | number;
 }
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+  const bgColor = useColorModeValue("gray.900", "gray.200");
+  const color = useColorModeValue("gray.200", "gray.900");
+
   return (
     <Link
       href="#"
@@ -141,8 +145,8 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: useColorModeValue("gray.900", "gray.200"),
-          color: useColorModeValue("gray.200", "gray.900"),
+          bgColor,
+          color,
           fontWeight: "bold",
         }}
         {...rest}
@@ -158,15 +162,17 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const bgColor = useColorModeValue("white", "gray.900");
+  const borderColor = useColorModeValue("gray.200", "gray.700");
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
+      bgColor={bgColor}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      borderBottomColor={borderColor}
       justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
     >
@@ -225,10 +231,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 </Box>
               </HStack>
             </MenuButton>
-            <MenuList
-              bg={useColorModeValue("white", "gray.900")}
-              borderColor={useColorModeValue("gray.200", "gray.700")}
-            >
+            <MenuList bgColor={bgColor} borderColor={borderColor}>
               {MenuItems.map((item) => (
                 <MenuItem key={item}>{item}</MenuItem>
               ))}
