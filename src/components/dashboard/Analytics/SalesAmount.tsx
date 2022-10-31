@@ -62,7 +62,7 @@ const data = [
 ];
 
 export default function SalesAmountChart() {
-  const bgColor = useColorModeValue("white", "gray.700");
+  const bgColor = useColorModeValue("gray.50", "gray.800");
   const tooltipColor = useColorModeValue(
     "var(--chakra-colors-gray-100)",
     "var(--chakra-colors-gray-800)"
