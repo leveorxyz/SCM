@@ -1,3 +1,19 @@
+import { SimpleGrid } from "@chakra-ui/react";
+
+import SalesAmountChart from "./SalesAmount";
+import SalesVolumeChart from "./SalesVolume";
+
 export default function Analytics() {
-  return <></>;
+  return (
+    <SimpleGrid
+      id="analytics"
+      columns={{ base: 1, lg: 2 }}
+      gap={3}
+      w="full"
+      py={6}
+    >
+      <SalesAmountChart />
+      <SalesVolumeChart />
+    </SimpleGrid>
+  );
 }
