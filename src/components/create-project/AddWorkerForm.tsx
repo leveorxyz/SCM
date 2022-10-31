@@ -11,6 +11,8 @@ import {
 export default function AddWorkerForm() {
   const borderColor = useColorModeValue("gray.300", "gray.700");
   const inputBgColor = useColorModeValue("gray.50", "gray.800");
+  const bottomBtnBgColor = useColorModeValue("white", "gray.700");
+
   return (
     <Stack
       direction="column"
@@ -60,7 +62,12 @@ export default function AddWorkerForm() {
         </Stack>
       </Stack>
 
-      <Button w="full" rounded="none" colorScheme="gray">
+      <Button
+        bgColor={bottomBtnBgColor}
+        w="full"
+        rounded="none"
+        colorScheme="gray"
+      >
         Add Worker
       </Button>
     </Stack>

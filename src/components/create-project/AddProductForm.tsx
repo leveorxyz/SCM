@@ -13,6 +13,8 @@ import {
 export default function AddProductForm() {
   const borderColor = useColorModeValue("gray.300", "gray.700");
   const inputBgColor = useColorModeValue("gray.50", "gray.800");
+  const bottomBtnBgColor = useColorModeValue("white", "gray.700");
+
   return (
     <Flex
       w="full"
@@ -90,7 +92,13 @@ export default function AddProductForm() {
         </Stack>
       </SimpleGrid>
 
-      <Button w="full" rounded="none" colorScheme="gray" mt={2}>
+      <Button
+        bgColor={bottomBtnBgColor}
+        w="full"
+        rounded="none"
+        colorScheme="gray"
+        mt={2}
+      >
         Add Product
       </Button>
     </Flex>
