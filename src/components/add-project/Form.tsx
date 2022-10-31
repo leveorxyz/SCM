@@ -14,7 +14,7 @@ import { FiCalendar } from "react-icons/fi";
 export default function AddProjectForm() {
   const inputBgColor = useColorModeValue("gray.50", "gray.800");
   return (
-    <Stack direction="column" spacing={2} p={4}>
+    <Stack direction="column" spacing={2}>
       <Stack direction={{ base: "column", md: "row" }} spacing={2}>
         <FormControl>
           <Input
