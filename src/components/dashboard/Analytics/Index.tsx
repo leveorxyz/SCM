@@ -2,6 +2,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 
 import SalesAmountChart from "./SalesAmount";
 import SalesVolumeChart from "./SalesVolume";
+import PerformanceChart from "./PerformanceChart";
 
 export default function Analytics() {
   return (
@@ -14,6 +15,7 @@ export default function Analytics() {
     >
       <SalesAmountChart />
       <SalesVolumeChart />
+      <PerformanceChart />
     </SimpleGrid>
   );
 }
