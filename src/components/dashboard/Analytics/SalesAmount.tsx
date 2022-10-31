@@ -67,6 +67,10 @@ export default function SalesAmountChart() {
     "var(--chakra-colors-gray-100)",
     "var(--chakra-colors-gray-800)"
   );
+  const strokeColor = useColorModeValue(
+    "var(--chakra-colors-blue-300)",
+    "var(--chakra-colors-blue-600)"
+  );
 
   return (
     <Box p={3} bgColor={bgColor} rounded="lg" height="fit-content">
@@ -102,7 +106,7 @@ export default function SalesAmountChart() {
           <Line
             type="monotone"
             dataKey="amount"
-            stroke="var(--chakra-colors-blue-500)"
+            stroke={strokeColor}
             activeDot={{ r: 8 }}
           />
         </LineChart>

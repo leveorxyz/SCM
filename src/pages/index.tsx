@@ -56,10 +56,10 @@ const Index = () => {
           </FormControl>
           <Stack spacing={6}>
             <Button
-              bg={"orange.500"}
+              bg={"blue.500"}
               color={"white"}
               _hover={{
-                bg: "orange.600",
+                bg: "blue.600",
               }}
               onClick={onSubmit}
             >
