@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Button,
   Flex,
@@ -8,9 +9,11 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 
 import { Container } from "../components/Container";
+import firefly from "../lib/firefly";
 
 const Index = () => {
   const router = useRouter();
@@ -73,3 +76,16 @@ const Index = () => {
 };
 
 export default Index;
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const init = async () => {
+    await firefly.sendBroadcast({
+      data: [{ value: "test-message" }],
+    });
+  };
+  init().then(console.log).catch(console.error);
+
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
