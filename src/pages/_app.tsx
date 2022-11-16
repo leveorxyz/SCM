@@ -1,15 +1,19 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider } from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import theme from '../theme';
+import { AppProps } from 'next/app';
+import SidebarWithHeader from '../components/SidebarWithHeader';
 
-import theme from "../theme";
-import { AppProps } from "next/app";
-import SidebarWithHeader from "../components/SidebarWithHeader";
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <SidebarWithHeader>
-        <Component {...pageProps} />
-      </SidebarWithHeader>
+      <QueryClientProvider client={queryClient}>
+        <SidebarWithHeader>
+          <Component {...pageProps} />
+        </SidebarWithHeader>
+      </QueryClientProvider>
     </ChakraProvider>
   );
 }
